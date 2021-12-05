@@ -201,10 +201,14 @@ private:
 	void OnRep_Train();
 	UFUNCTION()
 	void OnRep_IsDerailed();
+
+	/** Helpers for the derail physics. */
+	void EnableDerailPhysics( const FVector& velocity );
+	void DisableDerailPhysics();
 	
 protected:
 	/** The train this vehicle is part of, updated from the railroad subsystem */
-	UPROPERTY( ReplicatedUsing = OnRep_Train )
+	UPROPERTY( ReplicatedUsing = OnRep_Train, VisibleAnywhere, Category = "Vehicle" )
 	class AFGTrain* mTrain;
 
 	/** How long is this vehicle. */
